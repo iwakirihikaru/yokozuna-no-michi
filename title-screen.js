@@ -1,0 +1,1 @@
+(() => { const title=document.querySelector('#titleScreen'); const enter=()=>title.classList.add('hidden'); document.querySelector('#newGame').onclick=()=>{localStorage.removeItem('yokozuna-save');enter()}; document.querySelector('#continueGame').onclick=enter; })();

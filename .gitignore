@@ -1,0 +1,17 @@
+# Local Codex attachments, caches, and previews
+.codex-remote-attachments/
+.wrangler/
+
+# Generated deployment bundle
+dist/
+
+# Dependencies and local environment files
+node_modules/
+.dev.vars
+.env
+.env.*
+!.env.example
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>横綱への道（仮）</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="kairo.css" />
+  <link rel="stylesheet" href="stable-map.css" />
+  <link rel="stylesheet" href="tempo.css" />
+  <link rel="stylesheet" href="season-loop.css" />
+  <link rel="stylesheet" href="focus.css" />
+  <link rel="stylesheet" href="goals.css" />
+  <link rel="stylesheet" href="dojo.css" />
+  <link rel="stylesheet" href="scout-screen.css" />
+  <link rel="stylesheet" href="arena.css" />
+  <link rel="stylesheet" href="profile.css" />
+  <link rel="stylesheet" href="tour.css" />
+  <link rel="stylesheet" href="console.css" />
+  <link rel="stylesheet" href="dojo-art.css" />
+  <link rel="stylesheet" href="pixel-game.css" />
+  <link rel="stylesheet" href="pixel-fit.css" />
+  <link rel="stylesheet" href="retro-sprites.css" />
+  <link rel="stylesheet" href="title-screen.css" />
+</head>
+<body>
+  <div class="grain"></div>
+  <section id="titleScreen" class="title-screen"><div class="title-copy"><p>SUMO STABLE MANAGEMENT SIMULATION</p><h1>横綱への道</h1><span>— 春風部屋編 —</span><div><button id="newGame">経営開始</button><button id="continueGame">続きから</button></div></div></section>
+  <main class="game-shell">
+    <section id="pixelGame" class="pixel-game"><header class="pg-header"><div><p>SUMO STABLE MANAGEMENT</p><h1>横綱への道</h1></div><div class="pg-resources"><b id="pgMoney">¥3,200,000</b><span>部屋人気 <i id="pgRep">42</i></span></div></header><nav class="pg-menu"><button data-pg-view="dojo">♨<span>稽古場</span></button><button data-pg-view="facility">⌂<span>施設</span></button><button data-pg-view="profile">♟<span>力士</span></button><button data-pg-view="scout">♙<span>スカウト</span></button><button data-pg-view="basho">⚑<span>本場所</span></button><button data-pg-view="history">▣<span>部屋史</span></button></nav><div id="pgViewport" class="pg-viewport"></div><footer class="pg-dialogue"><div class="pg-master">親方</div><p id="pgDialogue">春風部屋、今日も稽古を始めよう。</p><button id="pgPrimary">場所前ミーティング</button></footer></section>
+    <header class="topbar">
+      <div><p class="eyebrow">SUMO STABLE MANAGEMENT SIMULATION</p><h1>横綱への道 <span>（仮）</span></h1></div>
+      <div class="season"><b id="year">令和8年</b><span id="month">一月場所</span><small id="phaseLabel">稽古期間</small></div>
+    </header>
+
+    <section class="status-strip">
+      <div><span>部屋資金</span><b id="money">¥3,200,000</b></div>
+      <div><span>信用</span><b id="reputation">42</b><i class="meter"><em id="repMeter"></em></i></div>
+      <div><span>所属力士</span><b id="rosterCount">4人</b></div>
+      <div><span>月間収支</span><b id="balance" class="negative">-¥210,000</b></div>
+    </section>
+    <nav class="console-menu"><button data-console="stable"><i>♨</i><span>部屋管理</span></button><button data-console="facility"><i>⌂</i><span>施設購入</span></button><button data-console="profile"><i>♟</i><span>力士</span></button><button data-console="scout"><i>♙</i><span>スカウト</span></button><button data-console="tournament"><i>⚑</i><span>本場所</span></button><button data-console="history"><i>▣</i><span>部屋の歴史</span></button></nav>
+
+    <nav class="tabs"><button class="active" data-tab="stable">部屋</button><button data-tab="tournament">本場所</button><button data-tab="relations">人間模様</button><button data-tab="history">部屋の歴史</button></nav>
+
+    <section id="stable" class="panel active">
+      <div class="section-heading"><div><p class="label">YOUR RIKISHI</p><h2>力士一覧</h2></div><button id="openProfile" class="subtle">弟子名鑑・能力診断</button></div>
+      <div class="dojo-dashboard"><section class="stable-map-wrap"><div class="map-heading"><div><p class="label">STABLE VIEW</p><h3>春風部屋・稽古場</h3></div><p id="mapHint">稽古中の弟子を見守ろう</p></div><div id="stableMap" class="stable-map"></div></section><aside class="dojo-command"><p class="label">部屋の指示</p><h3>稽古方針</h3><div class="dojo-policy"><button data-dojo-train="power">集中<span>成長↑　疲労↑</span></button><button data-dojo-train="balanced" class="on">普通<span>安定した育成</span></button><button data-dojo-train="recovery">休養<span>回復を優先</span></button></div><h3 class="command-subhead">設備強化</h3><div class="dojo-facility"><button data-dojo-facility="kitchen">ちゃんこ場 Lv.<b id="kitchenLevel">0</b><small>回復・体づくり</small></button><button data-dojo-facility="dojo">稽古場 Lv.<b id="dojoLevel">1</b><small>成長・怪我予防</small></button><button data-dojo-facility="clinic">医務室 Lv.<b id="clinicLevel">0</b><small>治療・再発防止</small></button></div><button id="openTour" class="tour-button">巡業・地域貢献<span>人気と後援を育てる</span></button></aside></div>
+      <div id="rikishiCards" class="rikishi-grid"></div>
+      <div class="management-grid">
+        <article class="box training"><div class="box-title"><span>稽古方針</span><b id="trainingName">基礎鍛錬</b></div>
+          <div class="choice-row" id="trainingChoices">
+            <button data-train="balanced" class="chosen">基礎鍛錬<small>安定成長</small></button>
+            <button data-train="power">猛稽古<small>成長大 / 怪我↑</small></button>
+            <button data-train="recovery">調整稽古<small>回復 / 成長小</small></button>
+          </div>
+          <p id="trainingDesc">全員の基礎能力を少しずつ伸ばす。厳しい番付では、焦りが怪我を呼ぶ。</p>
+        </article>
+        <article class="box facility"><div class="box-title"><span>施設投資</span><b>効果には代償あり</b></div>
+          <div class="facility-list">
+            <button data-facility="kitchen"><b>ちゃんこ場強化</b><span>¥850,000</span><small>回復↑ 体重↑ / 膝・腰の負担↑</small></button>
+            <button data-facility="dojo"><b>稽古場改装</b><span>¥1,200,000</span><small>成長↑ 怪我↓ / 信頼が低い弟子は反発</small></button>
+            <button data-facility="clinic"><b>医務室設置</b><span>¥1,500,000</span><small>治療↑ / 維持費 +¥90,000/月</small></button>
+          </div>
+        </article>
+      </div>
+      <article class="scout-box"><div><p class="label">RECRUITMENT</p><h3>新弟子の目利き</h3><p>有望株ほど支度金がかかる。外せば、部屋の経営そのものが揺らぐ。</p></div><button id="scoutButton" class="subtle">スカウト情報を見る</button></article>
+      <div class="actions"><button id="advanceMonth" class="primary">一ヶ月を進める <span>›</span></button><p>場所前は稽古できる月が限られる。資金が尽きれば部屋は閉鎖となる。</p></div>
+    </section>
+
+    <section id="tournament" class="panel">
+      <div class="tournament-head"><div><p class="label">TOURNAMENT ARC</p><h2 id="tournamentTitle">一月場所</h2><p id="arcText">初日〜5日目　調子の揺れが大きい序盤戦。</p></div><div class="dayboard"><b><span id="day">0</span> / 15日目</b><small id="arcName">場所前</small></div></div>
+      <section id="goalCard" class="goal-card"></section>
+      <section id="arenaScene" class="arena-scene"></section>
+      <div id="tournamentRoster" class="bout-list"></div>
+      <div class="actions tournament-actions"><button id="nextBout" class="primary">一日ずつ見る</button><button id="quickBout" class="quick-button">▶ 5日まとめて進行</button><button id="injuryRest" class="subtle hidden">休場を選ぶ</button><p>重要な一番だけは、通常進行でじっくり見届けよう。</p></div>
+      <div id="boutLog" class="match-log"><p class="empty-log">取組の記録はここに表示されます。</p></div>
+    </section>
+
+    <section id="relations" class="panel">
+      <div class="section-heading"><div><p class="label">BONDS &amp; RIVALRIES</p><h2>人間模様</h2></div><p>数字の外側にある、もうひとつの勝負。</p></div>
+      <div id="mentorCard" class="mentor-card"></div><div id="relationList" class="relation-list"></div>
+    </section>
+
+    <section id="history" class="panel"><div class="section-heading"><div><p class="label">STABLE CHRONICLE</p><h2>部屋の歴史</h2></div></div><div id="historyList" class="history-list"></div></section>
+  </main>
+  <div id="modal" class="modal hidden"><div class="modal-card"><p class="label" id="modalLabel">DECISION</p><h2 id="modalTitle"></h2><p id="modalText"></p><div id="modalActions" class="modal-actions"></div></div></div>
+  <div id="scoutScreen" class="scout-screen hidden"><div class="scout-frame"><header><p class="label">RECRUITMENT EVENT</p><h2>新入弟子選考会</h2><button id="closeScout">×</button></header><div class="scout-scene"><div class="scout-oyakata">親方</div><div class="scout-candidates" id="scoutCandidates"></div></div><footer><p id="scoutDialogue">候補者を選んで、詳しい話を聞こう。</p><div id="scoutInfo"></div></footer></div></div>
+  <div id="profileScreen" class="profile-screen hidden"><div class="profile-frame"><header><p class="label">RIKISHI PROFILE</p><h2>弟子検査・能力診断</h2><button id="closeProfile">×</button></header><div class="profile-main"><aside id="profileRoster" class="profile-roster"></aside><section class="profile-body"><div id="profilePortrait" class="profile-portrait"></div><div id="profileStats" class="profile-stats"></div><div id="profileRadar" class="profile-radar"></div></section></div><footer id="profileMessage"></footer></div></div>
+  <div id="tourScreen" class="tour-screen hidden"><div class="tour-frame"><header><p class="label">JUNGYO &amp; COMMUNITY</p><h2>巡業・地域貢献</h2><button id="closeTour">×</button></header><div class="tour-scene"><div class="tour-town">春風町<br><small>現在地</small></div><div class="tour-rikishi">春風部屋</div><div class="tour-crowd">● ● ● ● ●</div><div id="tourOptions" class="tour-options"></div></div><footer><p id="tourDialogue">地域の人々が、部屋の到着を待っている。</p><div class="tour-status">部屋人気 <b id="tourRep">42</b>　/　後援会の期待 <b id="tourSupport">ふつう</b></div></footer></div></div>
+  <script src="game.js"></script>
+  <script src="scout.js"></script>
+  <script src="stable-map.js"></script>
+  <script src="tempo.js"></script>
+  <script src="season-loop.js"></script>
+  <script src="focus.js"></script>
+  <script src="goals.js"></script>
+  <script src="dojo.js"></script>
+  <script src="scout-screen.js"></script>
+  <script src="arena.js"></script>
+  <script src="profile.js"></script>
+  <script src="tour.js"></script>
+  <script src="console-menu.js"></script>
+  <script src="pixel-game.js"></script>
+  <script src="pixel-fit.js"></script>
+  <script src="retro-scene.js"></script>
+  <script src="title-screen.js"></script>
+</body>
+</html>
