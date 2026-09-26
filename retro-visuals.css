@@ -1,0 +1,66 @@
+/* 低解像度のゲーム画面を拡大して見せる、共通のレトロ演出レイヤー */
+:root { --ink:#130e0a; --wood:#553522; --gold:#d6ad62; --paper:#f0dba4; }
+
+.pixel-game,
+.title-screen,
+.pg-scene { image-rendering: pixelated; image-rendering: crisp-edges; }
+
+.pixel-game {
+  background-color: var(--ink);
+  box-shadow: inset 0 0 0 3px #0a0806, inset 0 0 0 7px #81512e, 0 0 0 3px #d1a55e;
+}
+
+.pg-header { background:linear-gradient(#342219 0 44%,#16100c 45%); border-bottom-color:#d1a55e; }
+.pg-header h1,.title-copy h1 { letter-spacing:2px; text-shadow:3px 3px #2c160d, 6px 6px #0e0906; }
+.pg-menu { padding-left:17px; gap:8px; background:#17110d; border-bottom:3px solid #a97643; }
+.pg-menu button { width:80px; border:3px solid #9d7147; border-radius:0; box-shadow:inset 0 0 0 2px #20160f; }
+.pg-menu button:active { transform:translate(2px,2px); }
+.pg-viewport { padding:12px; background-color:#0c0907; background-image:repeating-linear-gradient(90deg,#ffffff05 0 1px,transparent 1px 4px); }
+.pg-scene { border:4px solid #1b110b; box-shadow:inset 0 0 0 3px #be9155; }
+
+/* 背景は384px幅まで落としてから拡大した素材。背景とスプライトの解像度を合わせる。 */
+.dojo-scene { background-image:url('assets/retro/dojo-hall.png'); background-size:100% 100%; background-position:center; }
+.basho-scene { background-image:url('assets/retro/basho-arena.png'); background-size:100% 100%; background-position:center; }
+.facility-scene,.history-scene { background-image:url('assets/retro/dojo-hall.png'); background-size:100% 100%; }
+.title-screen { background-image:url('assets/retro/stable-gate.png'); background-size:cover; background-position:center; }
+
+/* 木枠・金縁・羊皮紙の情報表示を統一 */
+.pg-panel,.bout,.gain { border-radius:0; box-shadow:3px 3px 0 #0c0907, inset 0 0 0 2px #4a2c1b; }
+.pg-panel { right:14px; top:18px; width:230px; padding:12px; border-color:#d6ad62; background:#17110de8; }
+.pg-panel b { font-size:16px; text-align:center; color:#ffe9ae; margin-bottom:6px; }
+.pg-panel button { height:44px; margin:4px 0; border:3px solid #c99a57; border-radius:0; font-size:16px; }
+.gain { border-color:#d7bb6c; color:#96ec80; font-size:13px; }
+.scene-caption { border-radius:0; box-shadow:3px 3px #130b08; font-size:13px; }
+
+/* 四角い2〜3頭身の土俵上スプライト。動きはsteps指定でコマ送り風にする。 */
+.pg-dude { width:42px; height:30px; border-radius:0; background:#bc7957; box-shadow:0 29px 0 8px var(--c,#3469a0), 4px 4px 0 #422418; image-rendering:pixelated; }
+.pg-dude:before { left:7px; top:-12px; width:29px; height:13px; border-radius:0; background:#171311; box-shadow:6px -3px 0 #171311; }
+.pg-dude b { top:45px; font-size:9px; }
+.basho-scene .fight { z-index:4; transform:scale(2); transform-origin:bottom center; animation:bout-step .58s steps(2,end) infinite; }
+.basho-scene .right { animation-name:bout-step-right; }
+@keyframes bout-step { 50% { transform:scale(2) translateX(8px) translateY(-2px); } }
+@keyframes bout-step-right { 50% { transform:scale(2) translateX(-8px) translateY(-2px); } }
+
+.facility-scene:before,.history-scene:before { background:#100a07d9; }
+.facility-scene h2,.history-scene h2 { text-shadow:2px 2px #080604; }
+.fac-grid button { border-radius:0; border-color:#c99a57; box-shadow:4px 4px #100a07, inset 0 0 0 2px #45301f; }
+.fac-grid button i { color:#f3d07c; text-shadow:3px 3px #392113; }
+.history-scene>div { border-radius:0; box-shadow:5px 5px #100a07; }
+
+.pg-dialogue { border-top-color:#c99a57; background:#150f0c; }
+.pg-dialogue p { border-radius:0; box-shadow:2px 2px #1b1009; }
+.pg-dialogue button { border-radius:0; box-shadow:3px 3px #682718; }
+
+/* タイトルも看板を低解像度素材として扱い、余白を減らして携帯でも押しやすくする。 */
+.title-screen:before { background:linear-gradient(#070a0555 30%,#100805c8); }
+.title-copy { margin-top:-5px; }
+.title-copy h1 { font-size:50px; }
+.title-copy div { margin-top:150px; }
+.title-copy button { border-radius:0; border-color:#e1bc67; min-height:52px; }
+
+@media (orientation:portrait) {
+  .pg-menu { padding-left:11px; }
+  .pg-menu button { width:72px; }
+  .title-copy h1 { font-size:42px; }
+  .title-copy div { margin-top:115px; }
+}
