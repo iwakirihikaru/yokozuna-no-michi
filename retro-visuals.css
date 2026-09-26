@@ -58,6 +58,8 @@
 .title-copy div { margin-top:150px; }
 .title-copy button { border-radius:0; border-color:#e1bc67; min-height:52px; }
 .title-copy { width:min(92vw,760px); padding:22px; }
+.title-screen,.title-copy button { touch-action:manipulation; }
+.title-copy button { position:relative; z-index:3; pointer-events:auto; }
 .title-copy p { font-size:14px; }
 .title-copy h1 { font-size:clamp(46px,10vw,82px); line-height:1.05; }
 .title-copy span { font-size:clamp(18px,4vw,28px); }

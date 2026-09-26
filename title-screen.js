@@ -5,9 +5,14 @@
     title.classList.add('hidden');
     if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(()=>{});
   };
-  document.querySelector('#newGame').addEventListener('click',()=>{
+  const newGame=()=>{
     localStorage.removeItem('yokozuna-save-v1');
     enter();
-  });
-  document.querySelector('#continueGame').addEventListener('click',enter);
+  };
+  const bindTap=(node,action)=>{
+    node.addEventListener('pointerup',event=>{ event.preventDefault(); action(); });
+    node.addEventListener('click',action);
+  };
+  bindTap(document.querySelector('#newGame'),newGame);
+  bindTap(document.querySelector('#continueGame'),enter);
 })();
