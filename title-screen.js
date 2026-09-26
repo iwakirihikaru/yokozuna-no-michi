@@ -1,8 +1,9 @@
 (() => {
   const title=document.querySelector('#titleScreen');
-  const enter=async()=>{
-    try { if (!document.fullscreenElement) await document.documentElement.requestFullscreen(); } catch (_) { /* ブラウザが許可しない場合も通常表示で続行 */ }
+  const enter=()=>{
+    /* 全画面APIの完了を待つと、Android版Braveで背景だけ残る場合がある。 */
     title.classList.add('hidden');
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(()=>{});
   };
   document.querySelector('#newGame').addEventListener('click',()=>{
     localStorage.removeItem('yokozuna-save-v1');

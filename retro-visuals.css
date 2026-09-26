@@ -71,6 +71,7 @@
   .title-copy h1 { font-size:clamp(50px,13vw,72px); }
   .title-copy div { margin-top:clamp(120px,22vh,200px); gap:18px; }
   .title-copy button { min-width:42vw; min-height:76px; font-size:17px; }
+  .title-screen { background-size:auto 68%; background-repeat:no-repeat; background-position:center 62%; background-color:#172d43; }
 }
 
 /* 低解像度画像を実要素として表示し、ブラウザの背景補間を避ける。 */
