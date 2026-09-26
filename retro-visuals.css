@@ -64,3 +64,30 @@
   .title-copy h1 { font-size:42px; }
   .title-copy div { margin-top:115px; }
 }
+
+/* 低解像度画像を実要素として表示し、ブラウザの背景補間を避ける。 */
+.scene-bg { position:absolute; inset:0; z-index:0; width:100%; height:100%; object-fit:cover; image-rendering:pixelated; }
+.dojo-sign { position:absolute; z-index:3; left:45%; top:17%; padding:6px 11px; border:3px solid #d3a45b; background:#38242b; color:#ffe9a8; font:13px 'DotGothic16',sans-serif; font-style:normal; box-shadow:3px 3px #130b08; animation:sign-hop 1.1s steps(2,end) infinite; }
+@keyframes sign-hop { 50% { transform:translateY(-3px); } }
+.facility-scene .scene-bg,.history-scene .scene-bg { opacity:.4; }
+
+/* 参考の能力診断・新弟子検査・巡業画面も同じ黒金フレームへ揃える。 */
+.profile-screen,.scout-screen,.tour-screen { background:#080604e8; }
+.profile-frame,.scout-frame,.tour-frame { border-color:#c79b57; background:#1b130e; box-shadow:0 0 0 4px #120b07,8px 8px 0 #080604; }
+.profile-frame header,.scout-frame header,.tour-frame header { border-bottom:3px solid #c79b57; background:linear-gradient(#332219,#16100c); }
+.profile-main,.scout-scene { background:#8a6645; }
+.profile-frame footer,.scout-frame footer,.tour-frame footer { background:#16100c; border-top-color:#9f7345; }
+.profile-stats { border-color:#51331f; box-shadow:2px 2px #4a2c1b; }
+
+/* 稽古場内の小型力士を、参考画面に近い角ばった2〜3頭身へ。 */
+.retro-team { left:18%; bottom:10%; width:57%; height:49%; }
+.mini-rikishi { width:58px; height:91px; filter:drop-shadow(4px 5px #392316); }
+.mini-rikishi .hair { left:16px; width:27px; height:14px; box-shadow:5px -3px #1d1b19,9px 0 #1d1b19; }
+.mini-rikishi .head { left:12px; top:11px; width:34px; height:25px; background:#d09169; border-width:4px; }
+.mini-rikishi .head:after { content:''; position:absolute; left:7px; top:10px; width:4px; height:4px; background:#28170f; box-shadow:13px 0 #28170f; }
+.mini-rikishi .torso { left:7px; top:35px; width:44px; height:30px; border-width:4px; border-bottom-width:9px; }
+.mini-rikishi .arm { top:38px; width:13px; height:31px; border-width:4px; }
+.mini-rikishi .a1 { left:-4px; }.mini-rikishi .a2 { right:-4px; }
+.mini-rikishi .leg { top:63px; width:16px; height:25px; border-width:4px; }
+.mini-rikishi b { top:95px; left:-14px; min-width:84px; font-size:10px; }
+.mini-rikishi.p1 { left:39%; }.mini-rikishi.p2 { left:52%; }.mini-rikishi.watch { right:4%; }
