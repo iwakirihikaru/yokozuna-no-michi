@@ -35,9 +35,10 @@
       S.rikishi.forEach(r => {
         const needed = Math.max(0, 8 - r.w), cliff = needed > 15 - S.day;
         const special = late && (r.w >= 7 || r.w === S.day - 1);
-        const power = r.body * .34 + r.skill * .34 + r.mind * .32 * (special ? 1.25 : 1) + (r.mot - 50) * 2.6 - r.fatigue * 3.2 + (r.id === S.loop.focusId ? 24 : 0) + ((r.id === 'arashi' || r.id === 'hakuryu') ? 16 : 0);
-        const foe = 590 + Math.random() * 205 + (late ? 25 : 0);
-        if (power + Math.random() * 155 * (cliff ? 1.15 : 1) > foe + Math.random() * 155) r.w++; else r.l++;
+        const power = r.body * .36 + r.skill * .36 + r.mind * .28 * (special ? 1.25 : 1) + (r.mot - 50) * 2.2 - r.fatigue * 2.4 + (r.id === S.loop.focusId ? 34 : 0) + ((r.id === 'arashi' || r.id === 'hakuryu') ? 14 : 0);
+        /* 初期力士でも五分、重点指導と稽古で勝ち越しを狙える基準値。 */
+        const foe = 500 + Math.random() * 145 + (late ? 18 : 0);
+        if (power + Math.random() * 105 * (cliff ? 1.15 : 1) > foe + Math.random() * 105) r.w++; else r.l++;
         r.fatigue += 6 + (S.loop.policy === 'power' ? 3 : 0) + (r.id === S.loop.focusId ? 1 : 0);
       });
     }
@@ -64,8 +65,14 @@
       r.fatigue = Math.max(0, r.fatigue - 22); r.w = 0; r.l = 0;
     });
     S.loop.active = false; S.day = 0; S.log = []; S.practiceDay = 1; S.practiceCount = 0; S.month++; if (S.month > 6) { S.month = 1; S.year++; }
-    const costs = 210000 + (S.facilities.includes('clinic') ? 90000 : 0); const income = 90000 + S.rep * 1800; S.money += income - costs;
-    S.history.unshift(['千秋楽・番付発表', `${result.join('。')}。場所後の収支は${fmt(income - costs)}。`]);
+    S.support ??= 28; S.food ??= 64; S.staff ??= 1;
+    const foodUse = S.rikishi.length * 6;
+    S.food = Math.max(0, S.food - foodUse);
+    if (S.food < 20) S.rikishi.forEach(r=>r.mot=Math.max(0,r.mot-5));
+    const costs = 165000 + S.staff * 45000 + (S.facilities.includes('clinic') ? 90000 : 0);
+    const income = 70000 + S.rep * 1500 + S.support * 9000;
+    S.money += income - costs;
+    S.history.unshift(['千秋楽・番付発表', `${result.join('。')}。後援会${S.support}、食材残${S.food}。場所後の収支は${fmt(income - costs)}。`]);
     render(); updateButtons();
     modal('場所を終えて', result.join('。') + '。\n次の場所へ向け、また親方の判断が始まる。', [['部屋へ戻る', () => tab('stable')]], 'BASHO RESULT');
   }

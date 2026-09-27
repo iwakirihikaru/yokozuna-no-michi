@@ -1,4 +1,4 @@
-const S={year:8,month:1,money:3200000,rep:42,day:0,training:'balanced',practiceDay:1,practiceCount:0,practiceNote:'今日は基礎を固めよう。',facilities:[],coaching:'strict',log:[],history:[['創設','小さな稽古場と、四人の弟子で部屋を開いた。']],selected:'arashi',relations:{arashi_hakuryu:-62,iwao_sora:44,arashi_iwao:24},rikishi:[
+const S={year:8,month:1,money:3200000,rep:42,support:28,food:64,staff:1,day:0,training:'balanced',practiceDay:1,practiceCount:0,practiceNote:'今日は基礎を固めよう。',facilities:[],coaching:'strict',log:[],history:[['創設','小さな稽古場と、四人の弟子で部屋を開いた。']],selected:'arashi',relations:{arashi_hakuryu:-62,iwao_sora:44,arashi_iwao:24},rikishi:[
  {id:'arashi',name:'嵐山',rank:'幕下十五枚目',w:0,l:0,body:598,skill:510,mind:570,fatigue:12,mot:66,trust:61,color:'#315c8e',rival:'hakuryu'},
  {id:'hakuryu',name:'白龍',rank:'幕下十八枚目',w:0,l:0,body:546,skill:625,mind:475,fatigue:18,mot:71,trust:42,color:'#a9513e',rival:'arashi'},
  {id:'iwao',name:'岩尾',rank:'三段目六枚目',w:0,l:0,body:690,skill:430,mind:610,fatigue:9,mot:54,trust:73,color:'#6b8050',rival:null},

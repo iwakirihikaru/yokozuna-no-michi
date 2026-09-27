@@ -43,6 +43,8 @@
 
 .facility-scene:before,.history-scene:before { background:#100a07d9; }
 .facility-scene h2,.history-scene h2 { text-shadow:2px 2px #080604; }
+.finance-strip{position:relative;z-index:2;display:flex;gap:7px;padding:0 25px}.finance-strip span{flex:1;border:2px solid #b88d51;background:#20150fe8;color:#e7d19a;padding:7px;font:11px 'DotGothic16',sans-serif}.finance-strip b{display:block;color:#8fe178;font-size:14px;margin-top:3px}.finance-note{position:relative;z-index:2;margin:0 28px;color:#f4dfaf;font-size:11px}
+.finance-actions{position:relative;z-index:2;display:flex;gap:10px;margin:0 28px 8px}.finance-actions button{border:3px solid #bd9151;background:#34251c;color:#ffe2a0;padding:7px 14px;font:bold 12px 'DotGothic16',sans-serif}.finance-actions small{color:#8cdd79;font-size:9px}
 .fac-grid button { border-radius:0; border-color:#c99a57; box-shadow:4px 4px #100a07, inset 0 0 0 2px #45301f; }
 .fac-grid button i { color:#f3d07c; text-shadow:3px 3px #392113; }
 .history-scene>div { border-radius:0; box-shadow:5px 5px #100a07; }
