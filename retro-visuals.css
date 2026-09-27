@@ -105,7 +105,7 @@
 
 /* 生成した透過PNGをそのまま使う。CSSで描いた胴体・手足は隠す。 */
 .retro-team { left:17%; bottom:8%; width:61%; height:57%; }
-.mini-rikishi { width:120px; height:158px; background:url('assets/rikishi-sprites-v1.png') left center/auto 100% no-repeat; filter:drop-shadow(4px 5px #28170f); }
+.mini-rikishi { width:120px; height:158px; background:url('assets/rikishi-sprites-v2.png') left center/auto 100% no-repeat; filter:drop-shadow(4px 5px #28170f); }
 .mini-rikishi i { display:none !important; }
 .mini-rikishi:nth-child(1) { background-position:0% center; }
 .mini-rikishi:nth-child(2) { background-position:33.333% center; }
@@ -115,7 +115,34 @@
 .mini-rikishi.shiko { left:6%; }.mini-rikishi.p1 { left:37%; }.mini-rikishi.p2 { left:53%; }.mini-rikishi.watch { right:1%; }
 
 /* 本場所も同じ生成スプライトを使用し、土俵上では押し合いだけをアニメーションさせる。 */
-.basho-scene .pg-dude.fight { width:116px; height:154px; background:url('assets/rikishi-sprites-v1.png') 0 center/auto 100% no-repeat; box-shadow:none; border-radius:0; }
+.basho-scene .pg-dude.fight { width:116px; height:154px; background:url('assets/rikishi-sprites-v2.png') 0 center/auto 100% no-repeat; box-shadow:none; border-radius:0; }
 .basho-scene .pg-dude.fight:before { display:none; }
 .basho-scene .pg-dude.fighter-green { background-position:66.667% center; }
 .basho-scene .pg-dude.fight b { top:157px; left:-12px; min-width:140px; font-size:10px; }
+
+/* 縦画面は縮小せず、スマホ用の縦長レイアウトとしてそのまま描画する。 */
+@media (orientation:portrait) {
+  body { background:#100b08; overflow:hidden; }
+  .game-shell { width:100vw !important; height:100dvh !important; padding:0 !important; border:0 !important; }
+  .pixel-game { width:100vw !important; height:100dvh !important; min-height:0 !important; border:0 !important; box-shadow:none; }
+  .pg-header { height:76px; padding:10px 14px; }
+  .pg-header h1 { font-size:26px; }
+  .pg-menu { height:74px; padding:7px 6px; gap:4px; }
+  .pg-menu button { flex:1; width:auto; min-width:0; font-size:19px; }
+  .pg-menu span { font-size:9px; }
+  .pg-viewport { height:calc(100dvh - 225px) !important; padding:7px; }
+  .pg-scene { border-width:3px; }
+  .pg-panel { right:8px; top:8px; width:38%; padding:7px; }
+  .pg-panel b { font-size:13px; }
+  .pg-panel button { height:38px; font-size:14px; }
+  .retro-team { left:1%; bottom:8%; width:60%; height:50%; }
+  .mini-rikishi { width:88px; height:116px; }
+  .mini-rikishi b { top:120px; min-width:88px; font-size:9px; }
+  .mini-rikishi.p1 { left:34%; }.mini-rikishi.p2 { left:53%; }.mini-rikishi.watch { right:-9%; }
+  .gain.a { left:14%; top:24%; }.gain.b { left:49%; top:35%; }
+  .dojo-sign { left:37%; top:12%; }
+  .pg-dialogue { height:75px; padding:7px; gap:6px; }
+  .pg-dialogue p { font-size:10px; padding:7px; }
+  .pg-mobile-actions { height:54px; }
+  .pg-mobile-actions button { font-size:13px; }
+}
