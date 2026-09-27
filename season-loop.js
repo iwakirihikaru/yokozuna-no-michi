@@ -63,7 +63,7 @@
       else if (r.w <= 5) { result.push(`${r.name}は負け越し`); r.mot = Math.max(0, r.mot - 10); }
       r.fatigue = Math.max(0, r.fatigue - 22); r.w = 0; r.l = 0;
     });
-    S.loop.active = false; S.day = 0; S.log = []; S.month++; if (S.month > 6) { S.month = 1; S.year++; }
+    S.loop.active = false; S.day = 0; S.log = []; S.practiceDay = 1; S.practiceCount = 0; S.month++; if (S.month > 6) { S.month = 1; S.year++; }
     const costs = 210000 + (S.facilities.includes('clinic') ? 90000 : 0); const income = 90000 + S.rep * 1800; S.money += income - costs;
     S.history.unshift(['千秋楽・番付発表', `${result.join('。')}。場所後の収支は${fmt(income - costs)}。`]);
     render(); updateButtons();
