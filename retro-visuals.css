@@ -119,6 +119,10 @@
 .basho-scene .pg-dude.fight:before { display:none; }
 .basho-scene .pg-dude.fighter-green { background-position:66.667% center; }
 .basho-scene .pg-dude.fight b { top:157px; left:-12px; min-width:140px; font-size:10px; }
+.basho-scene .bout-duo { position:absolute; z-index:4; left:50%; bottom:58px; width:310px; height:310px; object-fit:contain; transform:translateX(-50%); image-rendering:pixelated; filter:drop-shadow(4px 5px #26150d); animation:bout-duo-hop .55s steps(2,end) infinite; }
+@keyframes bout-duo-hop { 50% { transform:translateX(-50%) translateY(-5px); } }
+.mini-rikishi.v0 { background-position:0% center; }.mini-rikishi.v1 { background-position:33.333% center; }.mini-rikishi.v2 { background-position:66.667% center; }.mini-rikishi.v3 { background-position:100% center; }
+.avatar-edit { margin-top:8px; border-top:2px solid #8c6743; padding-top:6px; }.avatar-edit>b { display:block; font-size:10px; margin-bottom:4px; }.avatar-edit button { margin-right:4px; border:2px solid #765032; background:#2e2118; color:#ffdfa0; padding:4px 7px; font:10px 'DotGothic16',sans-serif; }
 
 /* 縦画面は縮小せず、スマホ用の縦長レイアウトとしてそのまま描画する。 */
 @media (orientation:portrait) {
@@ -143,6 +147,7 @@
   .dojo-sign { left:37%; top:12%; }
   .pg-dialogue { height:75px; padding:7px; gap:6px; }
   .pg-dialogue p { font-size:10px; padding:7px; }
+  .basho-scene .bout-duo { width:250px; height:250px; bottom:92px; }
   .pg-mobile-actions { height:54px; }
   .pg-mobile-actions button { font-size:13px; }
 }
