@@ -102,3 +102,20 @@
 .mini-rikishi .leg { top:63px; width:16px; height:25px; border-width:4px; }
 .mini-rikishi b { top:95px; left:-14px; min-width:84px; font-size:10px; }
 .mini-rikishi.p1 { left:39%; }.mini-rikishi.p2 { left:52%; }.mini-rikishi.watch { right:4%; }
+
+/* 生成した透過PNGをそのまま使う。CSSで描いた胴体・手足は隠す。 */
+.retro-team { left:17%; bottom:8%; width:61%; height:57%; }
+.mini-rikishi { width:120px; height:158px; background:url('assets/rikishi-sprites-v1.png') left center/auto 100% no-repeat; filter:drop-shadow(4px 5px #28170f); }
+.mini-rikishi i { display:none !important; }
+.mini-rikishi:nth-child(1) { background-position:0% center; }
+.mini-rikishi:nth-child(2) { background-position:33.333% center; }
+.mini-rikishi:nth-child(3) { background-position:66.667% center; }
+.mini-rikishi:nth-child(4) { background-position:100% center; }
+.mini-rikishi b { top:162px; left:0; min-width:120px; font-size:11px; }
+.mini-rikishi.shiko { left:6%; }.mini-rikishi.p1 { left:37%; }.mini-rikishi.p2 { left:53%; }.mini-rikishi.watch { right:1%; }
+
+/* 本場所も同じ生成スプライトを使用し、土俵上では押し合いだけをアニメーションさせる。 */
+.basho-scene .pg-dude.fight { width:116px; height:154px; background:url('assets/rikishi-sprites-v1.png') 0 center/auto 100% no-repeat; box-shadow:none; border-radius:0; }
+.basho-scene .pg-dude.fight:before { display:none; }
+.basho-scene .pg-dude.fighter-green { background-position:66.667% center; }
+.basho-scene .pg-dude.fight b { top:157px; left:-12px; min-width:140px; font-size:10px; }
