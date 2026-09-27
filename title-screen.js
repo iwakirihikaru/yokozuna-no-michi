@@ -7,7 +7,8 @@
   };
   const newGame=()=>{
     localStorage.removeItem('yokozuna-save-v1');
-    enter();
+    sessionStorage.setItem('yokozuna-new-game','1');
+    location.reload();
   };
   const bindTap=(node,action)=>{
     node.addEventListener('pointerup',event=>{ event.preventDefault(); action(); });
@@ -15,4 +16,5 @@
   };
   bindTap(document.querySelector('#newGame'),newGame);
   bindTap(document.querySelector('#continueGame'),enter);
+  if(sessionStorage.getItem('yokozuna-new-game')){sessionStorage.removeItem('yokozuna-new-game');enter();}
 })();
