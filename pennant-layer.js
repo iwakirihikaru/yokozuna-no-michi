@@ -1,4 +1,6 @@
 (()=>{
+  /* 旧画面の全体クリック再描画を、この新しいゲーム層へ届かせない。 */
+  document.querySelector('#pixelGame').addEventListener('click',e=>e.stopPropagation());
   const $=s=>document.querySelector(s),acts=['四股','ぶつかり','技術','休養'],days=['月','火','水','木','金','土','日'];
   let V='home';
   const state=()=>{let z=S.pennant;if(!z){z=S.pennant={ready:false,phase:'create',prep:1,day:0,w:0,l:0,policy:'基礎重視',schedule:['四股','ぶつかり','休養','技術','四股','ぶつかり','休養'],recent:[],news:['春風部屋、最初の弟子を迎える。'],career:{bouts:0,w:0,l:0,streak:0,best:0,kimarite:{寄り切り:0,押し出し:0}}}}return z};
