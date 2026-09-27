@@ -20,11 +20,10 @@
     }]), 'PRE-BASHO MEETING');
   }
   function chooseFocus(key, p) {
-    modal('重点指導を決める', '今場所、個別に時間を割く弟子を一人選ぶ。期待は伸びるが、他の弟子の不満にも注意。', S.rikishi.map(r => [`${r.name}　${r.rank}`, () => {
+      const r=S.rikishi.find(x=>x.id===S.selected)||S.rikishi[0];
       S.loop = { active: true, policy: key, focusId: r.id }; S.training = key;
       S.rikishi.forEach(x => { const growth = key === 'power' ? 11 : key === 'recovery' ? 2 : 6; x.body += growth + (x.id === r.id ? 7 : 0); x.skill += growth + (x.id === r.id ? 7 : 0); x.mot = Math.max(0, Math.min(100, x.mot + (x.id === r.id ? 7 : -1))); x.fatigue = Math.max(0, x.fatigue + (key === 'power' ? 10 : key === 'recovery' ? -10 : 2)); if (key === 'power' && x.trust < 50) x.mot = Math.max(0, x.mot - 7); });
       S.history.unshift([`${document.querySelector('#month').textContent} 場所前`, `方針は「${p.title}」。重点指導は${r.name}。`]); tab('tournament'); render(); updateButtons();
-    }]), 'FOCUS RIKISHI');
   }
   function resolve(days) {
     if (!S.loop.active) return meeting();
